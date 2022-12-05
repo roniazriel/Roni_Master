@@ -1,14 +1,14 @@
-# import torch
+import torch
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 from sklearn.model_selection import train_test_split, KFold
-# import pytorch_tabnet
-# from pytorch_tabnet.tab_model import TabNetRegressor
+import pytorch_tabnet
+from pytorch_tabnet.tab_model import TabNetRegressor
 import pandas as pd
 import numpy as np
 import optuna
 import matplotlib.pyplot as plt
 import seaborn as sns
-# from sklearn.metrics import r2_score
+from sklearn.metrics import r2_score
 
 
 class Tab_Net:
@@ -340,7 +340,7 @@ if __name__ == '__main__':
 
     tab = Tab_Net(train_df, target1, target2, target3)
     best_tab = tab.hyperparameter_tuning()
-    path = r'C:\Users\azrie\PycharmProjects\pythonProject\Roni_Master\TabNet_Model'
+    path = 'TabNet_Model.zip'
     torch.save(best_tab, path)
     model = torch.load(path)
     # print(model)
